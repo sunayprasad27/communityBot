@@ -20,7 +20,7 @@ server.post('/api/messages', connector.listen());
 
 // Create bot dialogs
 bot.dialog('/', function (session) {
-    session.send("Hello World");
+    session.send("Hello, How may I help you?");
 });
 
 server.get('/', restify.serveStatic({
