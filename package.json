@@ -21,6 +21,7 @@
   "homepage": "https://github.com/sunayprasad27/communityBot",
   "dependencies": {
     "botbuilder": "^3.2.3",
+    "https": "^1.0.0",
     "restify": "^4.1.1"
   }
 }
