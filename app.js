@@ -33,7 +33,7 @@ server.post('/api/messages', connector.listen());
     session.send("Hello, How may I help you?");
 });*/
 
-/*var intents = new builder.IntentDialog();
+var intents = new builder.IntentDialog();
 bot.dialog('/', intents);
 
 intents.matches(/^hi/i, [
@@ -43,23 +43,14 @@ intents.matches(/^hi/i, [
     function (session, results) {
         session.send("Ok... %s", results.response);
     }
-]);*/
+]);
 
-var intents = new builder.IntentDialog();
-bot.dialog('/', intents);
-
-/*intents.matches(/^version/i, function (session) {
+intents.matches(/^version/i, function (session) {
     session.send('Bot version 1.2');
 });
 
-intents.matches(/^version/i, builder.DialogAction.send('Bot version 1.2'));*/
+intents.matches(/^version/i, builder.DialogAction.send('Bot version 1.2'));
 
-bot.dialog('/', new builder.IntentDialog()
-    .matches(/^add/i, '/addTask')
-    .matches(/^change/i, '/changeTask')
-    .matches(/^delete/i, '/deleteTask')
-    .onDefault(builder.DialogAction.send("I'm sorry. I didn't understand."))
-);
 
 
 server.get('/', restify.serveStatic({
