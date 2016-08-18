@@ -21,7 +21,7 @@ server.post('/api/messages', connector.listen());
 // Create bot dialogs
 /*bot.dialog('/', function (session) {
     session.send("Hello, How may I help you?");
-});
+});*/
 
 var intents = new builder.IntentDialog();
 bot.dialog('/', intents);
