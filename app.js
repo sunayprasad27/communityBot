@@ -1,8 +1,24 @@
 // Add your requirements
-var restify = require('restify'); 
-var builder = require('botbuilder'); 
 
-/*var globalTunnel = require('global-tunnel');
+var appId = process.env.MICROSOFT_APP_ID || "Missing your App Id";
+var appPassword = process.env.MICROSOFT_APP_PASSWORD || "Missing your App Password";
+
+var SLACK_BOT_TOKEN = 'xoxb-69701326195-Sq0XL1d77pyYdZmQshBuI3wt';
+
+var restify = require('restify'); 
+var builder = 	require('botbuilder');
+var Botkit = require('botkit'),
+					controller = Botkit.slackbot(),
+						bot = controller.spawn({
+						token: SLACK_BOT_TOKEN
+					});
+
+					bot.startRTM(function(err) {
+						if (err) {
+						throw new Error('Could not connect to Slack');
+					}
+					});
+var globalTunnel = require('global-tunnel');
 
 globalTunnel.initialize({
   host: '172.22.218.218',
@@ -10,7 +26,7 @@ globalTunnel.initialize({
 });
 
 process.env.http_proxy = 'http://172.22.218.218:8085';
-globalTunnel.initialize();*/
+globalTunnel.initialize();
 
 // Setup Restify Server
 var server = restify.createServer();
@@ -19,8 +35,7 @@ server.listen(process.env.PORT || 3000, function()
    console.log('%s listening to %s', server.name, server.url); 
 });
 
-var appId = process.env.MICROSOFT_APP_ID || "Missing your App Id";
-var appPassword = process.env.MICROSOFT_APP_PASSWORD || "Missing your App Password";
+
 
 // Create chat bot
 var connector = new builder.ChatConnector
