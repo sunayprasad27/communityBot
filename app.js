@@ -19,9 +19,21 @@ var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
 // Create bot dialogs
-bot.dialog('/', function (session) {
+/*bot.dialog('/', function (session) {
     session.send("Hello, How may I help you?");
 });
+
+var intents = new builder.IntentDialog();
+bot.dialog('/', intents);
+
+intents.matches(/^echo/i, [
+    function (session) {
+        builder.Prompts.text(session, "What would you like me to say?");
+    },
+    function (session, results) {
+        session.send("Ok... %s", results.response);
+    }
+]);
 
 server.get('/', restify.serveStatic({
  directory: 'D:\PROJECTS\ChatBot\CommunityBot\communityBot',
