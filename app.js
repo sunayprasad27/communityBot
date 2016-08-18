@@ -33,7 +33,7 @@ server.post('/api/messages', connector.listen());
     session.send("Hello, How may I help you?");
 });*/
 
-var intents = new builder.IntentDialog();
+/*var intents = new builder.IntentDialog();
 bot.dialog('/', intents);
 
 intents.matches(/^hi/i, [
@@ -41,9 +41,18 @@ intents.matches(/^hi/i, [
         builder.Prompts.text(session, "Welcome to Salesforce Community!! How may I help you?");
     },
     function (session, results) {
-        session.send("Sure, I will be %s", results.response);
+        session.send("Ok... %s", results.response);
     }
-]);
+]);*/
+
+var intents = new builder.IntentDialog();
+bot.dialog('/', intents);
+
+intents.matches(/^version/i, function (session) {
+    session.send('Bot version 1.2');
+});
+
+
 
 server.get('/', restify.serveStatic({
  directory: 'D:\PROJECTS\ChatBot\CommunityBot\communityBot',
