@@ -41,7 +41,7 @@ intents.matches(/^hi/i, [
         builder.Prompts.text(session, "Welcome to Salesforce Community!! How may I help you?");
     },
     function (session, results) {
-        session.send("Ok... %s", results.response);
+        session.send("Sure, I will be %s", results.response);
     }
 ]);
 
