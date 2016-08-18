@@ -48,10 +48,18 @@ intents.matches(/^hi/i, [
 var intents = new builder.IntentDialog();
 bot.dialog('/', intents);
 
-intents.matches(/^version/i, function (session) {
+/*intents.matches(/^version/i, function (session) {
     session.send('Bot version 1.2');
 });
 
+intents.matches(/^version/i, builder.DialogAction.send('Bot version 1.2'));*/
+
+bot.dialog('/', new builder.IntentDialog()
+    .matches(/^add/i, '/addTask')
+    .matches(/^change/i, '/changeTask')
+    .matches(/^delete/i, '/deleteTask')
+    .onDefault(builder.DialogAction.send("I'm sorry. I didn't understand."))
+);
 
 
 server.get('/', restify.serveStatic({
