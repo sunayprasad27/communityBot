@@ -45,13 +45,9 @@ intents.matches(/^hi/i, [
     }
 ]);
 
-intents.matches(/^version/i, function (session) {
+/*intents.matches(/^version/i, function (session) {
     session.send('Bot version 1.2');
-});
-
-intents.matches(/^version/i, builder.DialogAction.send('Bot version 1.2'));
-
-
+});*/
 
 server.get('/', restify.serveStatic({
  directory: 'D:\PROJECTS\ChatBot\CommunityBot\communityBot',
